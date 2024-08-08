@@ -1,0 +1,32 @@
+    .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: 20px 0; /* Adjust as needed */
+  }
+  
+  .background-video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .LockTop {
+    /* Additional styles for the first image */
+    top: 40%; /* Adjust as needed */
+    left: 40%; /* Adjust as needed */
+  }
+  
+  .LockMain {
+    /* Additional styles for the second image */
+    top: 60%; /* Adjust as needed */
+    left: 60%; /* Adjust as needed */
+  }
+  

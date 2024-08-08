@@ -7,13 +7,13 @@ Token prices in the current market typically fluctuate based only on supply and 
 
 ## Idea
 
-Our project, EngageCoin, aims to create an ERC-20 token on Polygon for each YouTube channel, with a price that dynamically adjusts based on demand, supply, and YouTube engagement metrics (likes, comments, views). This approach benefits both content creators, who earn royalties from trading fees, and traders, who profit by investing in tokens associated with high-engagement channels.
+Our project, EngageCoin, aims to create an ERC-20 token on Etherium for each YouTube channel, with a price that dynamically adjusts based on demand, supply, and YouTube engagement metrics (likes, comments, views). This approach benefits both content creators, who earn royalties from trading fees, and traders, who profit by investing in tokens associated with high-engagement channels.
 
 ## Tech Stack
 
-- **Blockchain Platform**: Polygon (Mumbai Testnet for development)
+- **Blockchain Platform**: Etherium (Sepolia)
 - **Smart Contracts**: ERC-20 Token with custom functions for price adjustment and royalty distribution.
-- **Decentralized Exchange (DEX)**: QuickSwap on Polygon.
+- **Decentralized Exchange (DEX)**: Uniswap on Etherium.
 - **Oracle**: Custom Oracle to fetch engagement metrics from YouTube.
 - **Frontend**: Web application using `web3.js` or `ethers.js` for interaction with smart contracts.
 - **APIs**: YouTube Data API to fetch engagement metrics.
@@ -22,4 +22,4 @@ Our project, EngageCoin, aims to create an ERC-20 token on Polygon for each YouT
 
 ## Conclusion
 
-EngageCoin is a dynamic token system on Polygon that incorporates both market demand, supply, and YouTube engagement metrics. It provides new opportunities for creators and traders alike. Our next steps include deploying on the mainnet, refining engagement integration, and exploring further features.
+EngageCoin is a dynamic token system on Etherium that incorporates both market demand, supply, and YouTube engagement metrics. It provides new opportunities for creators and traders alike. Our next steps include deploying on the mainnet, refining engagement integration, and exploring further features.

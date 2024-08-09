@@ -1,74 +1,78 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './home.css'
-import { CoinContext } from '../../context/CoinContext'
+import React, { useContext, useEffect, useState } from 'react';
+import './home.css';
+import { CoinContext } from '../../context/CoinContext';
+import { Link } from 'react-router-dom';
+import coin from '../../assets/coin.png';
+import data from '../../assets/data.json'; // Assuming data.json is located in assets
+
 const Home = () => {
+  const { allCoin, currency } = useContext(CoinContext);
+  const [displayCoin, setDisplayCoin] = useState([]);
+  const [input, setInput] = useState('');
+  const [channelData, setChannelData] = useState({});
 
-const {allCoin, currency} = useContext(CoinContext);
-const [displayCoin, setDisplayCoin] = useState([]);
-const [input, setInput] = useState('');
-
-const inputHandler = (event)=>{
+  const inputHandler = (event) => {
     setInput(event.target.value);
-    if(event.target.value === ""){
-        setDisplayCoin(allCoin);        
+    if (event.target.value === "") {
+      setDisplayCoin(allCoin);
     }
-}
+  };
 
-const searchHandler = async (event)=>{
+  const searchHandler = async (event) => {
     event.preventDefault();
-    const coins = await allCoin.filter((item)=>{
-       return item.name.toLowerCase().includes(input.toLowerCase())
-    })
+    const coins = await allCoin.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase());
+    });
     setDisplayCoin(coins);
-}
-useEffect(()=>{
-setDisplayCoin(allCoin);
-},[allCoin])
+  };
+
+  useEffect(() => {
+    setDisplayCoin(allCoin);
+  }, [allCoin]);
+
+  useEffect(() => {
+    // Set the channel data from JSON
+    setChannelData(data);
+  }, []);
 
   return (
-    <div className='home'>  
-    <div className='hero'>
-        
+    <div className='home'>
+      <div className='hero'>
         <h1>EngageCoin <br /> Dynamic token system</h1>
-      <p>Welcome to EngageCoin 👋 marketplace.<br />Sign up to explore more s.</p> 
+        <p>Welcome to EngageCoin 👋 marketplace.<br />Sign up to explore more s.</p>
         <form onSubmit={searchHandler}>
-            <input onChange={inputHandler} list='coinlist' value={input} type="text" placeholder="Search crypto.." required/>
-            <datalist id='coinlist'>
-                {allCoin.map((item,index)=>(<option key={index} value={item.name} />))}
-            </datalist>
-
-
-
-        <button type="submit">Search</button>
+          <input onChange={inputHandler} list='coinlist' value={input} type="text" placeholder="Search crypto.." required />
+          <datalist id='coinlist'>
+            {allCoin.map((item, index) => (<option key={index} value={item.name} />))}
+          </datalist>
+          <button type="submit">Search</button>
         </form>
-    </div>
+      </div>
       <div className="crypto-table">
         <div className="table-layout">
-            <p>Sr.no</p>
-            <p>Coins</p>
-            <p>Price</p>
-            <p style={{textAlign:"center"}}>24H Change</p>
-            <p className='market-cap'>Market Cap</p>
+          <p>Sr.no</p>
+          <p>Coins</p>
+          <p>Price</p>
+          <p style={{ textAlign: "center" }}>Subscribers</p>
+          <p className='market-cap'>Views</p>
         </div>
         {
-            displayCoin.slice(0,10).map((item, index)=>(
-                <div className='table-layout' key={index}>
-                    <p>{item.market_cap_rank}</p>
-                    <div>
-                        <img src={item.image} alt="" />
-                        <p>{item.name + " - " + item.symbol}</p>
-                    </div>
-                    <p>{currency.symbol}{item.current_price.toLocaleString()} </p>
-                    <p className={item.price_change_percentage_24h>0?"green":"red"}>
-                        {Math.floor(item.price_change_percentage_24h*100)/100}</p>
-            <p className='market-cap'>{currency.symbol} {item.market_cap.toLocaleString()}</p>
-
-                </div> 
-            ))
+          displayCoin.slice(0, 5).map((item, index) => (
+            <Link to={`/coin/${item.id}`} className='table-layout' key={index}>
+              <p>{index + 1}</p>
+              <div>
+                <img src={coin} alt="coin" />
+                <p>{"EngageCoin - ETC"}</p>
+              </div>
+              <p>{currency.symbol}500 </p>
+              <p>{channelData.subscribers.toLocaleString()}</p> {/* Using the subscribers data from JSON */}
+              <p className='market-cap'>{channelData.views.toLocaleString()}</p> {/* Using the views data from JSON */}
+            </Link>
+          ))
         }
       </div>
     </div>
-  ) 
+  );
 }
 
 export default Home

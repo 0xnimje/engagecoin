@@ -1,0 +1,52 @@
+/* About.css */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px; /* Increased padding for more space around the container */
+    background: linear-gradient(#0b004e, #1d152f, #002834);
+    min-height: 100vh;
+  }
+  
+  .about-gif {
+    margin-bottom: 30px; /* Added more margin below the GIF */
+  }
+  
+  .about-gif img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .about-card {
+    background: rgba(255, 255, 255, 0.15); /* Slightly increased transparency */
+    padding: 40px; /* Increased padding inside the card for more content spacing */
+    border-radius: 20px; /* Increased border-radius for a smoother edge */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); /* Slightly larger shadow for more depth */
+    color: white;
+    max-width: 900px; /* Increased max-width for a wider card */
+    width: 100%;
+  }
+  
+  .about-card h1, .about-card h2 {
+    margin-top: 30px; /* Added more space above headings */
+  }
+  
+  .about-card p, .about-card ul {
+    margin-bottom: 25px; /* Increased bottom margin for paragraphs and lists */
+  }
+  
+  .about-card ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .about-card ul li {
+    margin-bottom: 15px; /* Added more space between list items */
+  }
+  
+  .about-card p {
+    line-height: 1.6; /* Improved line height for better readability */
+  }
+  

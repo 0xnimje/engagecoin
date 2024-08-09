@@ -1,5 +1,5 @@
-const YouTubeToken = artifacts.require("YouTubeToken");
+const YoutubeToken = artifacts.require("YouTubeToken");
 
-module.exports = function (deployer, network, accounts) {
-  deployer.deploy(YouTubeToken, accounts[0]);
+module.exports = function (deployer) {
+  deployer.deploy(YoutubeToken);
 };

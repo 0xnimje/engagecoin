@@ -3,7 +3,7 @@ import './Coin.css';
 import { useParams } from 'react-router-dom';
 import { CoinContext } from '../../context/CoinContext';
 import coin from '../../assets/coin.png';
-import data from '../../assets/data.json'; // Assuming data.json is located in assets
+import data from '../../../../data.json'; // Assuming data.json is located in assets
 
 const Coin = () => {
   const { coinId } = useParams();

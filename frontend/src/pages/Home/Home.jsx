@@ -3,7 +3,7 @@ import './home.css';
 import { CoinContext } from '../../context/CoinContext';
 import { Link } from 'react-router-dom';
 import coin from '../../assets/coin.png';
-import data from '../../assets/data.json'; // Assuming data.json is located in assets
+import data from '../../../../data.json'; // Assuming data.json is located in assets
 
 const Home = () => {
   const { allCoin, currency } = useContext(CoinContext);
